@@ -26,15 +26,3 @@ public class LeapYearExample {
 
     }
 }
-
-interface test{
-    void test();
-}
-/* asdasdasd***** // tetet  */
-abstract class sample implements test{}
-class ggg extends sample{
-    @Override
-    public void test() {
-       ;
-    }
-}
