@@ -40,7 +40,17 @@ public class EmployeeStreamExample {
                                 Employee::getDepartment,
                                 Collectors.maxBy(Comparator.comparing(Employee::getSalary))
                         ));
+        //Without optional
+        Map<String, Employee> highestSalaryByDept1 =
+                employees.stream()
+                        .collect(Collectors.groupingBy(
+                                Employee::getDepartment,
+                                Collectors.collectingAndThen(
+                                        Collectors.maxBy(Comparator.comparing(Employee::getSalary)),
+                                                Optional::get)
+                        ));
         System.out.println("Highest salary by Department : " + highestSalaryByDept);
+
 
         System.out.println("---------------------------------------------------------");
     }
